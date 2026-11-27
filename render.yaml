@@ -2,6 +2,7 @@ services:
   - type: web
     name: pulsequant-nse
     runtime: python
+    region: singapore
     plan: free
     buildCommand: >-
       python -m zipfile -e "pulsequant_nse (2).zip" . &&
