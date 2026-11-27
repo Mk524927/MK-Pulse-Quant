@@ -3,8 +3,12 @@ services:
     name: pulsequant-nse
     runtime: python
     plan: free
-    buildCommand: "python -m zipfile -e pulsequant_nse.zip . && pip install -r pulsequant_nse/requirements.txt"
-    startCommand: "cd pulsequant_nse && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    buildCommand: >-
+      python -m zipfile -e "pulsequant_nse (2).zip" . &&
+      pip install -r pulsequant_nse/requirements.txt
+    startCommand: cd pulsequant_nse && uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
+      - key: PYTHONUNBUFFERED
+        value: "1"
